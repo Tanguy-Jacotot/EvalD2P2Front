@@ -7,7 +7,7 @@ import { Event } from '../types';
   providedIn: 'root'
 })
 export class EventService {
-  private baseUrl: string = 'http://apiurl/api/event';
+  private baseUrl: string = 'https://functionapp-240306131637.azurewebsites.net';
 
   constructor(private httpClient: HttpClient) {}
 

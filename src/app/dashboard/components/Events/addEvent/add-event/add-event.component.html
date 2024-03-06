@@ -1,1 +1,40 @@
-<p>add-event works!</p>
+<div class="add-event-component">
+    <h1>Add an Event</h1>
+    <div class="form-container">
+        <form [formGroup]="eventForm" (ngSubmit)="onSubmit()" class="event-form">
+          <div>
+            <label for="title">Title</label>
+            <input type="text" id="title" formControlName="title">
+            <div *ngIf="f.title.touched && f.title.invalid" class="error">Title is required</div>
+          </div>
+
+          <div>
+            <label for="description">Description</label>
+            <textarea id="description" formControlName="description"></textarea>
+            <div *ngIf="f.description.touched && f.description.invalid" class="error">Description is required</div>
+          </div>
+
+          <div>
+            <label for="date">Date</label>
+            <input type="date" id="date" formControlName="date">
+            <div *ngIf="f.date.touched && f.date.invalid" class="error">Date is required</div>
+          </div>
+
+          <div>
+            <label for="time">Time</label>
+            <input type="time" id="time" formControlName="time">
+            <div *ngIf="f.time.touched && f.time.invalid" class="error">Time is required</div>
+          </div>
+
+          <div>
+            <label for="location">Location</label>
+            <input type="text" id="location" formControlName="location">
+            <div *ngIf="f.location.touched && f.location.invalid" class="error">Location is required</div>
+          </div>
+
+          <button type="submit" [disabled]="!eventForm.valid">Add Event</button>
+          <div *ngIf="message" class="message">{{ message }}</div>
+          <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        </form>
+    </div>
+</div>
